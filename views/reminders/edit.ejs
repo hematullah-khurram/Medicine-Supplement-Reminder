@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Reminder</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-mint-50 text-slate-800 min-h-screen p-6">
+
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Edit Reminder Form -->
+    <h1 class="text-2xl font-bold mb-4">Edit Reminder</h1>
+    <form action="/reminders/<%= reminder._id %>?_method=PUT" method="POST" class="grid gap-4 bg-white rounded-2xl p-6 shadow ring-1 ring-brand-100">
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Name</span>
+          <input name="name" value="<%= reminder.name %>" required class="input" />
+        </label>
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Dosage</span>
+          <input name="dosage" value="<%= reminder.dosage %>" required class="input" />
+        </label>
+      </div>
+
+      <label class="grid gap-1">
+        <span class="text-sm font-semibold">Description</span>
+        <textarea name="description" class="input min-h-[96px]"><%= reminder.description %></textarea>
+      </label>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Category</span>
+          <select name="category" class="input">
+            <option value="vitamin" <%= reminder.category==='vitamin'?'selected':'' %>>Vitamin</option>
+            <option value="supplement" <%= reminder.category==='supplement'?'selected':'' %>>Supplement</option>
+            <option value="prescription" <%= reminder.category==='prescription'?'selected':'' %>>Prescription</option>
+            <option value="other" <%= reminder.category==='other'?'selected':'' %>>Other</option>
+          </select>
+        </label>
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Frequency</span>
+          <input name="frequency" value="<%= reminder.frequency %>" required class="input" />
+        </label>
+        <label class="grid gap-1">
+          <span class="text-sm font-semibold">Time</span>
+          <input name="time" value="<%= reminder.time %>" type="time" class="input" />
+        </label>
+      </div>
+
+      <div class="flex gap-3 justify-end">
+        <a href="/reminders/<%= reminder._id %>" class="btn-secondary">Cancel</a>
+        <button class="btn-primary">Update</button>
+      </div>
+    </form>
+
+    <!-- Display Reminders Table -->
+    <h2 class="text-xl font-bold mt-10 mb-4">All Reminders</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse shadow rounded-lg overflow-hidden">
+        <thead class="bg-brand-100 text-brand-800 font-semibold">
+          <tr>
+            <th class="px-4 py-2 text-left">💊 Name</th>
+            <th class="px-4 py-2 text-left">💧 Dosage</th>
+            <th class="px-4 py-2 text-left">⏰ Time</th>
+            <th class="px-4 py-2 text-left">🔄 Frequency</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr class="bg-white hover:bg-gray-50">
+            <td class="px-4 py-2">Paracetamol</td>
+            <td class="px-4 py-2">2</td>
+            <td class="px-4 py-2">21:30</td>
+            <td class="px-4 py-2">Daily</td>
+          </tr>
+          <tr class="bg-white hover:bg-gray-50">
+            <td class="px-4 py-2">Vitamin C</td>
+            <td class="px-4 py-2">1 tablet</td>
+            <td class="px-4 py-2">08:00</td>
+            <td class="px-4 py-2">Daily</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

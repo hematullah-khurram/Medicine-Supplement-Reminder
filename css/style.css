@@ -1,0 +1,29 @@
+/* Input fields */
+.input {
+  @apply border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-brand-400;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-brand-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-brand-700 transition;
+}
+.btn-secondary {
+  @apply bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition;
+}
+
+/* Table Styling */
+table {
+  @apply w-full border-collapse;
+}
+
+thead th {
+  @apply px-4 py-2 text-left;
+}
+
+tbody td {
+  @apply px-4 py-2;
+}
+
+tbody tr {
+  @apply bg-white hover:bg-gray-50;
+}

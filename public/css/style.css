@@ -1,0 +1,59 @@
+/* Tailwind handles most styling; we add a few utilities via @layer */
+@media (prefers-reduced-motion: no-preference) {
+  .hover\:lift:hover { transform: translateY(-1px); transition: transform .15s ease; }
+}
+
+/* Reusable components using Tailwind's @apply */
+.input {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-300;
+}
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-brand-600 px-4 py-2 font-semibold text-white hover:bg-brand-700;
+}
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50;
+}
+.btn-danger {
+  @apply inline-flex items-center justify-center rounded-xl bg-rose-600 px-4 py-2 font-semibold text-white hover:bg-rose-700;
+}
+.btn-link {
+  @apply text-brand-700 hover:underline;
+}
+
+
+
+
+
+
+
+
+@layer utilities {
+  .bg-gradient-brand {
+    @apply bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 text-white;
+  }
+
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .card {
+    @apply rounded-2xl p-4 shadow-md hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .heading {
+    @apply text-2xl font-bold text-slate-800 mb-2;
+  }
+
+  .subheading {
+    @apply text-sm text-slate-500;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

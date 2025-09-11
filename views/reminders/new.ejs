@@ -1,0 +1,43 @@
+<h1 class="text-2xl font-bold mb-4">Create Reminder</h1>
+<form action="/reminders" method="POST" class="grid gap-4 bg-white rounded-2xl p-6 shadow ring-1 ring-brand-100">
+  <div class="grid sm:grid-cols-2 gap-4">
+    <label class="grid gap-1">
+      <span class="text-sm font-semibold">Name</span>
+      <input name="name" type="text" required class="input" />
+    </label>
+    <label class="grid gap-1">
+      <span class="text-sm font-semibold">Dosage</span>
+      <input name="dosage" type="text" required class="input" />
+    </label>
+  </div>
+
+  <label class="grid gap-1">
+    <span class="text-sm font-semibold">Description</span>
+    <textarea name="description" class="input min-h-[96px]"></textarea>
+  </label>
+
+  <div class="grid sm:grid-cols-3 gap-4">
+    <label class="grid gap-1">
+      <span class="text-sm font-semibold">Category</span>
+      <select name="category" class="input">
+        <option value="vitamin">Vitamin</option>
+        <option value="supplement">Supplement</option>
+        <option value="prescription">Prescription</option>
+        <option value="other" selected>Other</option>
+      </select>
+    </label>
+    <label class="grid gap-1">
+      <span class="text-sm font-semibold">Frequency</span>
+      <input name="frequency" type="text" placeholder="daily / weekly / custom" required class="input" />
+    </label>
+    <label class="grid gap-1">
+      <span class="text-sm font-semibold">Time</span>
+      <input name="time" type="time" class="input" />
+    </label>
+  </div>
+
+  <div class="flex gap-3 justify-end">
+    <a href="/reminders" class="btn-secondary">Cancel</a>
+    <button class="btn-primary">Save</button>
+  </div>
+</form>

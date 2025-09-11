@@ -1,0 +1,22 @@
+<div class="flex items-center justify-between mb-4">
+  <h1 class="text-2xl font-bold">My Reminders</h1>
+  <a href="/reminders/new" class="btn-primary">Add Reminder</a>
+</div>
+
+<% if (reminders.length) { %>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <% reminders.forEach(r => { %>
+      <a href="/reminders/<%= r._id %>" class="block rounded-2xl bg-white shadow p-5 ring-1 ring-brand-100 hover:shadow-lg transition">
+        <div class="flex items-start justify-between">
+          <h3 class="text-lg font-semibold"><%= r.name %></h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-brand-100 text-brand-800 capitalize"><%= r.category %></span>
+        </div>
+        <p class="mt-1 text-sm text-slate-600"><strong>Dosage:</strong> <%= r.dosage %></p>
+        <p class="text-sm text-slate-600"><strong>Time:</strong> <%= r.time || '—' %></p>
+        <p class="text-sm text-slate-600"><strong>Frequency:</strong> <%= r.frequency %></p>
+      </a>
+    <% }) %>
+  </div>
+<% } else { %>
+  <p class="text-slate-600">No reminders yet.</p>
+<% } %>
