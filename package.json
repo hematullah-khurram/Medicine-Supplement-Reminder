@@ -2,9 +2,9 @@
   "name": "medicine-supplement-reminder",
   "version": "1.0.0",
   "main": "app.js",
-   "scripts": {
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js" 
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "express-session": "^1.18.2",
     "express-validator": "^7.2.1",
     "method-override": "^3.0.0",
+    "mongodb": "^6.19.0",
     "mongoose": "^8.18.1"
   },
   "devDependencies": {
