@@ -1,9 +1,9 @@
-/* Tailwind handles most styling; we add a few utilities via @layer */
+
 @media (prefers-reduced-motion: no-preference) {
   .hover\:lift:hover { transform: translateY(-1px); transition: transform .15s ease; }
 }
 
-/* Reusable components using Tailwind's @apply */
+
 .input {
   @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-300;
 }
@@ -19,13 +19,6 @@
 .btn-link {
   @apply text-brand-700 hover:underline;
 }
-
-
-
-
-
-
-
 
 @layer utilities {
   .bg-gradient-brand {

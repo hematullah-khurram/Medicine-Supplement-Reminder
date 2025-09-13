@@ -1,24 +1,22 @@
-// public/js/notifications.js
 
-// Ask for notification permission
 if ("Notification" in window && Notification.permission !== "granted") {
   Notification.requestPermission();
 }
 
-// Play sound helper
+
 function playSound() {
   const audio = new Audio("/notify.mp3");
   audio.play();
 }
 
-// Check reminders every 30 seconds
+
 async function checkReminders() {
   try {
-    const res = await fetch("/api/reminders"); // call backend endpoint
+    const res = await fetch("/api/reminders"); 
     const reminders = await res.json();
 
     const now = new Date();
-    const currentTime = now.toTimeString().slice(0, 5); // format: HH:MM
+    const currentTime = now.toTimeString().slice(0, 5); 
 
     reminders.forEach(rem => {
       if (rem.time === currentTime) {
@@ -36,5 +34,4 @@ async function checkReminders() {
   }
 }
 
-// Run every 30s
 setInterval(checkReminders, 30000);

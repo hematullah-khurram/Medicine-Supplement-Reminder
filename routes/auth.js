@@ -3,7 +3,7 @@ const { body, validationResult } = require('express-validator');
 const router = express.Router();
 const User = require('../models/User');
 
-// Register
+
 router.get('/register', (req, res) => res.render('register', { title: 'Register' }));
 
 router.post('/register',
@@ -32,7 +32,7 @@ router.post('/register',
   }
 );
 
-// Login
+
 router.get('/login', (req, res) => res.render('login', { title: 'Login' }));
 
 router.post('/login', async (req, res) => {
@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
+
 router.post('/logout', (req, res) => {
   req.session.destroy(() => res.redirect('/'));
 });
